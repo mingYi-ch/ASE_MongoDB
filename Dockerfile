@@ -9,5 +9,5 @@ RUN apt-get update \
 # copy sh
 COPY ./init_db.sh /docker-entrypoint-initdb.d/
 # install python library
-COPY ./requirements.txt /requirements.txt
-RUN pip install -r requirements.txt
+COPY ./pylib_list /pylib_list
+RUN pip install -r pylib_list
