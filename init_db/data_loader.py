@@ -6,7 +6,7 @@ import numpy as np
 client = MongoClient("localhost:27017")
 client.drop_database('ase')
 db = client.ase
-data = pd.read_csv("/init/movies_metadata.csv", nrows = 1000)
+data = pd.read_csv("/init_db/movies_metadata.csv", nrows = 1000)
 header = data.columns.tolist()
 data = data.to_numpy()
 

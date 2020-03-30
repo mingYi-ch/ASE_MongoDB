@@ -2,20 +2,14 @@
 
 This repository contains my solution to the GSoC 2020: Evaluation submission.
 
-## Prerequistes and Installation
+## Build docker image
 
-### Install mongoDB docker Image
-
-Run container
 ```
-docker run --name mongodb -p 27017:27017 -d mongo:4.0
+docker build -t ase_db .
 ```
-## Data processing
 
-## load data into mongoDB
+## run docker container
 
-Run `data_loader.py`
-
-## Do queries 
-
-Run `queries.py`
+```
+docker run -p 27017:27017 -d ase_db
+```

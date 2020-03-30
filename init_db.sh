@@ -1,4 +1,4 @@
 #! /bin/bash
 
 # initialize database
-python /init/data_loader.py
+python /init_db/data_loader.py
