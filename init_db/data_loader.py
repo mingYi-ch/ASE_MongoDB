@@ -1,14 +1,12 @@
 from pymongo import MongoClient
 # pprint library is used to make the output look more pretty
-from pprint import pprint
 import pandas as pd
-import json
 import numpy as np
 
 client = MongoClient("localhost:27017")
 client.drop_database('ase')
 db = client.ase
-data = pd.read_csv("../raw_data/movies_metadata.csv", nrows = 1000)
+data = pd.read_csv("/init_db/movies_metadata.csv", nrows = 1000)
 header = data.columns.tolist()
 data = data.to_numpy()
 
@@ -31,6 +29,5 @@ for elem in data:
         row[header[idx]] = val_ # parse the expression to python 
     res = db.moives.insert_one(row)
     # break
-print("Data is loaded successfully!")
-
+client.close()
 
