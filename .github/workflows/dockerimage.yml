@@ -1,0 +1,31 @@
+name: top trumps mongoDB CI
+
+on:
+  push:
+    branches: [ master, develop]
+  pull_request:
+    branches: [ master, develop]
+
+jobs:
+
+  db:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      #- uses: mingYi-ch/top-trumps-mongoDB@v1
+    - uses: actions/checkout@v2
+    - name: build image
+      run:  docker build . -t tt_db
+
+    - name: run container
+      run: docker run -p 27017:27017 -d tt_db #${{ steps.build.outputs.tt_db }}
+    
+    - name: install dependencies
+      run: |
+          sudo apt-get update
+          sudo apt-get install -y python
+          #sudo apt-get install -y python-pip
+          sudo pip  install pymongo
+    - name: run query test
+      run: python ./query_test/queries.py
