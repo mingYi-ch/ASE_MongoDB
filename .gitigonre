@@ -1,4 +1,4 @@
 */.vscode/*
 .vscode/
-ratings.csv
-movies_metadata.csv
+*/ratings.csv
+*/movies_metadata.csv
