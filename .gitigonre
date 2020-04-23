@@ -1,4 +1,4 @@
 */.vscode/*
 .vscode/
-*/ratings.csv
-*/movies_metadata.csv
+init_db/ratings.csv
+init_db/movies_metadata.csv

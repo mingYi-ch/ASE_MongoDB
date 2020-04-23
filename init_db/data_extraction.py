@@ -17,7 +17,6 @@ def preprocess_data(meta_path, rating_path, movie_num = 40000, testrows = None):
     meta.dropna().astype({'popularity': np.float, 'id': 'str'}) \
         .sort_values(by = 'popularity', inplace = True, ascending = False)
     #meta_selected = meta.drop(np.arange(movie_num, meta.shape[0]))
-    # meta_selected = meta
 
     # print(meta_selected['title'])
     cols_r = ['movieId', 'rating']
@@ -26,7 +25,7 @@ def preprocess_data(meta_path, rating_path, movie_num = 40000, testrows = None):
     avg_rating.to_csv('rating.csv')
     
     # join the two dataframes
-    df_new = meta.merge(avg_rating, left_on = 'id', right_on = 'movieId', how = 'inner').round({'popularity': 2}).sample(frac = 1)
+    df_new = mega.merge(avg_rating, left_on = 'id', right_on = 'movieId', how = 'inner').round({'popularity': 2}).sample(frac = 1)
     # print(df_new)
     df_new.to_csv('movie_data.csv', index = False)
 
