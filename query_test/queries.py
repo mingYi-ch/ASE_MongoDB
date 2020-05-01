@@ -1,8 +1,7 @@
 from pymongo import MongoClient
 
 client = MongoClient("localhost:27017")
-moives = client.ase.moives
+movies = client.ase.movies
 
-doc = moives.find_one({'adult': False})
+doc = movies.find_one({'adult': False})
 assert(doc['adult'] == False)
-    
