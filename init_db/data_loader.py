@@ -3,7 +3,7 @@ from pymongo import MongoClient
 import pandas as pd
 import numpy as np
 
-client = MongoClient("localhost:27017")
+client = MongoClient('mongodb://root:example@localhost', 27017)
 client.drop_database('ase')
 db = client.ase
 data = pd.read_csv("/init_db/movies_metadata.csv", nrows = 1000)
@@ -26,8 +26,7 @@ for elem in data:
             except:
                 val_ = val
         # print(val_)
-        row[header[idx]] = val_ # parse the expression to python 
-    res = db.moives.insert_one(row)
+        row[header[idx]] = val_ # parse the expression to python
+    res = db.movies.insert_one(row)
     # break
 client.close()
-
