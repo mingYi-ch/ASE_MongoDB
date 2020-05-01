@@ -27,7 +27,7 @@ for elem in data:
                 val_ = val
         # print(val_)
         row[header[idx]] = val_ # parse the expression to python 
-    res = db.moives.insert_one(row)
+    res = db.movies.insert_one(row)
     # break
 client.close()
 
