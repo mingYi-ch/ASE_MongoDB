@@ -1,9 +1,9 @@
 import pandas as pd
 import numpy as np
 
-def preprocess_data(meta_path, rating_path, movie_num = 40000, testrows = None):
+def preprocess_data(meta_path, rating_path, movie_num = 40000, testrows = 1000):
     # find 5000 movies with top popularity
-    cols = ['id', 'genres', 'budget', 'popularity', 'poster_path', 'release_date', 'revenue', 'runtime', 'title'] # add rating
+    cols = ['id', 'genres', 'budget','imdb_id', 'popularity', 'poster_path', 'release_date', 'revenue', 'runtime', 'title'] # add rating
     meta = pd.read_csv(meta_path, usecols=cols, nrows = testrows).astype({'budget': 'str', 'revenue': 'str'})
     # print(meta.index)
     # remove rows where id is date, or budget and revenue is 0
